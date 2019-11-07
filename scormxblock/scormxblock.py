@@ -303,6 +303,9 @@ class ScormXBlock(XBlock):
         frag.add_content(MakoTemplate(text=html).render_unicode(**context))
         frag.add_css(self.resource_string("static/css/scormxblock.css"))
         frag.add_javascript(self.resource_string("static/js/src/studio.js"))
+        frag.add_javascript_url(self.runtime.local_resource_url(self, 'public/jquery.min.js'))
+        frag.add_javascript_url(self.runtime.local_resource_url(self, 'public/jquery-ui.min.js'))
+        frag.add_javascript_url(self.runtime.local_resource_url(self, 'public/jquery.iframe-transport.js'))
         frag.add_javascript_url(self.runtime.local_resource_url(self, 'public/jquery.fileupload.js'))
         frag.initialize_js('ScormStudioXBlock')
         return frag
